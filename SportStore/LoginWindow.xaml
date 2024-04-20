@@ -27,6 +27,7 @@
                 <Button Name="loginButton"
                         Margin="0 10 0 0"
                         Height="20"
+                        Click="loginButton_Click"
                         IsDefault="True"
                         Content="Авторизация"/>
             </StackPanel>
