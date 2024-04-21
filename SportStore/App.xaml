@@ -3,9 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:local="clr-namespace:SportStore"
              StartupUri="LoginWindow.xaml">
+    
+    
     <Application.Resources>
 
-        <Style TargetType="Button">
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="modedrn.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+
+        <!--<Style TargetType="Button">
             <Setter Property="Background" Value="#FF76E383" />
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="10"/>
@@ -30,6 +38,6 @@
         <Style TargetType="Window">
             <Setter Property="FontFamily" Value="Comic Sans MS"/>
             <Setter Property="FontSize" Value="10"/>
-        </Style>
+        </Style>-->
     </Application.Resources>
 </Application>

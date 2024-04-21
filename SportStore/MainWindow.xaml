@@ -13,18 +13,32 @@
         MaxHeight="770"
         MaxWidth="1250"
         Name="mainWindowApp"
-        Icon="Resources/icon.ico"
+        Icon="Resources/icon.ico" 
         WindowStartupLocation="CenterScreen"
          >
 
     <Grid>
+
+        
+        
+        
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>  
             <RowDefinition Height="0.5*"/>
             <RowDefinition Height="4*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
 
+        <Border CornerRadius="10" Grid.RowSpan="5">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7EE9F6" Offset="0.0"/>
+                    <GradientStop Color="#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+        </Border>
+        
         <Grid VerticalAlignment="Center" >
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*"/>
@@ -43,7 +57,20 @@
                         HorizontalAlignment="Right"
                         Grid.Column="1">
 
-                <TextBlock Name="statusUser" Margin="1" Text="Роль: Иванов Иван Иванович" Height="20" Width="300" TextAlignment="Center"/>
+                <TextBlock Name="statusUser"
+                           Margin="1"
+                           Text="Роль: Иванов Иван Иванович"
+                           Height="20" Width="300" 
+                           TextAlignment="Center"
+                           
+                           
+                            FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="15"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8"  />
                 <Button Click="exitButtonClick" Margin="1" Content="Выход" Height="20" Width="100"/>
 
             </StackPanel>
@@ -65,23 +92,90 @@
 
             <StackPanel Margin="1" Grid.Column="0" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <TextBlock Margin="1" Text="Сортировка" Height="20" Width="100"/>
+                <TextBlock Margin="1"
+                           Text="Сортировка"
+                           Height="20"
+                           Width="100" 
+                           FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="18"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8" />
+                
                 <ComboBox Margin="1" SelectionChanged="sortUserComboBox_SelectionChanged"
-                          Name="sortUserComboBox" Height="20" Width="150"/>
+                          Name="sortUserComboBox" Height="20" Width="150"
+                          
+                                               
+                              FontFamily="helvetica"
+FontWeight="Light"
+BorderBrush="White" 
+FontSize="20"
+HorizontalAlignment="Center"
+Foreground="White"
+Background="Transparent"
+BorderThickness="2" 
+HorizontalContentAlignment="Left"
+Opacity="0.5"  
+                          />
             </StackPanel>
 
             <StackPanel Margin="1" Grid.Column="1" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <TextBlock Margin="1" Text="Фильтр" Height="20" Width="100"/>
+                <TextBlock Margin="1" Text="Фильтр" Height="20" Width="100"
+                            
+                           FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="18"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8" 
+                           
+                           />
                 <ComboBox Margin="1" Name="filterUserComboBox" Height="20" Width="150"     
+                          
+                           
+                              FontFamily="helvetica"
+FontWeight="Light"
+BorderBrush="White" 
+FontSize="20"
+HorizontalAlignment="Center"
+Foreground="White"
+Background="Transparent"
+BorderThickness="2" 
+HorizontalContentAlignment="Left"
+Opacity="0.5"  
+                          
                           SelectionChanged="filterUserComboBox_SelectionChanged"/>
             </StackPanel>
 
             <StackPanel Margin="1" Grid.Column="2" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
-                <TextBlock Margin="1" Text="Поиск" Height="20" Width="100"/>
+                <TextBlock Margin="1" Text="Поиск" Height="20" Width="100"
+                           
+                           
+                           FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="18"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8" 
+                           />
                 <TextBox Margin="1" Name="searchBox" Width="100" Height="20"
-                         TextChanged="searchBox_TextChanged" />
+                         TextChanged="searchBox_TextChanged" 
+                          BorderBrush="White"
+                           FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="18"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8" 
+                         
+                         />
             </StackPanel>
             
             <StackPanel Margin="1"
@@ -92,7 +186,16 @@
                            TextAlignment="Left"
                            Name="countProducts"
                            Height="40" Width="150"
-                           Text="Количество: "/>
+                           Text="Количество: "
+                           
+                           
+                           FontFamily="helvetica"
+                         FontWeight="Light" 
+                         FontSize="18"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent" 
+                         Opacity="0.8" />
             </StackPanel>
 
             <Button Margin="1"
@@ -120,11 +223,11 @@
                 </ItemsPanelTemplate>
             </ListView.ItemsPanel>
 
-            <ListView.ItemTemplate  MouseDoubleClick="productlistView_MouseDoubleClick">
-                <DataTemplate  >
-                    <StackPanel Width="300">
+            <ListView.ItemTemplate   >
+                <DataTemplate >
+                    <StackPanel Width="301">
 
-                        <TextBlock Text="{Binding Name}"
+                        <TextBlock Text="{Binding Name}" 
                                   	  VerticalAlignment="Center"
 				  TextAlignment="Center"
 				  TextWrapping="Wrap"
@@ -227,7 +330,7 @@ Margin="0"
                                             FontSize="15"/>
 
 
-                        <Border BorderBrush="#FF498C51" BorderThickness="2">
+                        <Border MouseDown="EditProduct_MouseDoubleClick" BorderBrush="#FF498C51" BorderThickness="2">
                             <Image 
 			                       HorizontalAlignment="Center"
 			                       Height="200"

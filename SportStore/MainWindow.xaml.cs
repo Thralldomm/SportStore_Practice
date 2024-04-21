@@ -52,7 +52,7 @@ namespace SportStore
 
 
                 List<string> sortList = new List<string>() { "По возрастанию цены", "По убыванию цены" };
-
+                sortUserComboBox.ItemsSource = sortList;
 
                 List<string> filtertList = db.Products.Select(u => u.Manufacturer).Distinct().ToList();
                 filtertList.Insert(0, "Все производители");

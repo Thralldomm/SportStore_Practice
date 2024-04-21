@@ -5,54 +5,170 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SportStore"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="450" Width="800">
+          Height="450" Width="380"
+ AllowsTransparency="True" Background="Transparent" WindowStyle="None" ResizeMode="NoResize"
+       
+        
+        
+        Title="LoginWindow"  >
     <Grid>
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-            <StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+       
+        <Border CornerRadius="10" Grid.RowSpan="2">
+            <Border.Background>
+                <LinearGradientBrush>
+                    <GradientStop Color="#7EE9F6" Offset="0.0"/>
+                    <GradientStop Color="#f083da" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+
+        </Border>
+        <StackPanel Margin="0, 40, 0, 0">
+
+            <StackPanel >
                 <Image Source="Resources/logo.png" Height="100" Width="100"/>
             </StackPanel>
 
-            <StackPanel>
-                <TextBlock Margin="1" Height="20" Width="135" Text="Логин"/>
-                <TextBox Name="loginBox" Margin="1" Height="20" />
-            </StackPanel>
+            <StackPanel Margin="0, 15, 0, 0"  VerticalAlignment="Center">
 
-            <StackPanel>
-                <TextBlock Margin="1" Height="20" Text="Пароль"/>
-                <PasswordBox Name="passwordBox" Margin="1" Height="20"/>
-            </StackPanel>
+                <TextBox  
+                    FontFamily="helvetica"
+                         FontWeight="Light"
+                         Text="Sport Store"
+                         FontSize="35"
+                         HorizontalAlignment="Center"
+                         Foreground="White"
+                         Background="Transparent"
+                         BorderThickness="0"
+                         Width="235"
+                         HorizontalContentAlignment="Center"
+                         Opacity="0.8"
+                         Height="45"  
+                         />
 
-            <StackPanel>
-                <Button Name="loginButton"
-                        Margin="0 10 0 0"
-                        Height="20"
+            </StackPanel>
+        </StackPanel>
+       
+
+
+        <StackPanel Grid.Row="1" >
+            <StackPanel Orientation="Horizontal">
+                <TextBox x:Name="loginBox"
+                FontFamily="helvetica"
+                     FontWeight="Light"
+                     Text="Login"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"
+                     Height="25"
+                          IsMouseCapturedChanged="change" 
+                     Margin="65,3,0,3"  
+                     />
+
+            </StackPanel>
+            <Border Width="250"
+                Height="2"
+                Background="White"
+                Opacity="0.5"/>
+
+
+            <StackPanel Orientation="Horizontal" Margin="0 20 0 0">
+                <PasswordBox x:Name="passwordBox" 
+                    FontFamily="helvetica"
+                     FontWeight="Light"
+                     Password="Password"
+                     FontSize="20"
+                     HorizontalAlignment="Center"
+                     Foreground="White"
+                     Background="Transparent"
+                     BorderThickness="0"
+                     Width="235"
+                     HorizontalContentAlignment="Left"
+                     Opacity="0.5"
+                             IsMouseCapturedChanged="change2"
+                     Height="25"
+                     Margin="65,3,0,3" />
+
+            </StackPanel>
+            <Border Width="250"
+                Height="2"
+                Background="White"
+                Opacity="0.5"/>
+
+            <StackPanel Orientation="Horizontal" Margin="0 50 0 0">
+                <Button Name="loginButton" 
+                        Width="100" 
+                        Height="35" 
+                        Content="LOGIN" 
+                        Margin="50 0 0 0"
+                         
                         Click="loginButton_Click"
-                        IsDefault="True"
-                        Content="Авторизация"/>
-            </StackPanel>
-
-            <StackPanel>
-                <Button Margin="0 10 0 0" 
+                        IsDefault="True"  />
+                
+                <Button Width="100"
+                        Height="35" 
                         Click="guestButtonClick"
-                        Height="20" Content="Гость" />
-               
-            </StackPanel>
+                        Content="GUEST"
+                        Margin="50 0 0 0"
+                        
+                        
+                        />
+            </StackPanel> 
+            <WrapPanel Orientation="Horizontal"
+                       Margin="70, 10, 70, 0">
 
-            <StackPanel>
-                <TextBlock Name="captchaBlock"
-                           Margin="0 10 0 0">
 
+                <TextBlock x:Name="captchaBlock"
+               FontFamily="helvetica"
+               FontWeight="Light"
+               Text="Captcha"
+               FontSize="20"
+               HorizontalAlignment="Center"
+               Foreground="White"
+               Background="Transparent" 
+               Width="100" 
+               Opacity="0.5"
+               Height="25" 
+               >
                     <TextBlock.Effect>
                         <BlurEffect RenderingBias="Quality" KernelType="Box" Radius="0.5"/>
                     </TextBlock.Effect>
 
                 </TextBlock>
 
-                <TextBox Name="captchaBox"/>
 
-            </StackPanel>
 
+                <TextBox x:Name="captchaBox"
+          FontFamily="helvetica"
+          FontWeight="Light"
+          BorderBrush="White"
+           
+          FontSize="20"
+          HorizontalAlignment="Center"
+          Foreground="White"
+          Background="Transparent"
+          BorderThickness="2"
+          Width="100"
+          HorizontalContentAlignment="Left"
+          Opacity="0.5"
+          Height="25"
+          IsMouseCapturedChanged="change" 
+          Margin="20,3,0,3"  
+  />
+
+                
+                
+            </WrapPanel>
         </StackPanel>
-    </Grid>
+
+    </Grid> 
 </Window>

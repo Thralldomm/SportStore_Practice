@@ -36,7 +36,18 @@ namespace SportStore
         /// <summary>
         /// Асинхронное выключение кнопки на 10 сек.
         /// </summary>
-        async void disableButton()
+        /// 
+         private void change(object sender, DependencyPropertyChangedEventArgs e)
+        {
+            loginBox.Text = "";
+        }
+
+    private void change2(object sender, DependencyPropertyChangedEventArgs e)
+    {
+        passwordBox.Password = "";
+    }
+
+    async void disableButton()
         {
             loginButton.IsEnabled = false;
             await Task.Delay(TimeSpan.FromSeconds(10));
