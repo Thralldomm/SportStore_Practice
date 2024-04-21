@@ -14,7 +14,7 @@
         MaxWidth="1250"
         Name="mainWindowApp"
         Icon="Resources/icon.ico" 
-        WindowStartupLocation="CenterScreen"
+        WindowStartupLocation="CenterScreen"        
          >
 
     <Grid>
@@ -109,17 +109,17 @@
                           
                                                
                               FontFamily="helvetica"
-FontWeight="Light"
-BorderBrush="White" 
-FontSize="20"
-HorizontalAlignment="Center"
-Foreground="White"
-Background="Transparent"
-BorderThickness="2" 
-HorizontalContentAlignment="Left"
-Opacity="0.5"  
-                          />
-            </StackPanel>
+                        FontWeight="Light"
+                        BorderBrush="White" 
+                        FontSize="20"
+                        HorizontalAlignment="Center"
+                        Foreground="White"
+                        Background="Transparent"
+                        BorderThickness="2" 
+                        HorizontalContentAlignment="Left"
+                        Opacity="0.5"  
+                                                  />
+                                    </StackPanel>
 
             <StackPanel Margin="1" Grid.Column="1" VerticalAlignment="Center"
                         HorizontalAlignment="Center">
@@ -209,25 +209,28 @@ Opacity="0.5"
         </Grid>
 
 
- 
-        
-        <ListView Grid.Row ="2" 
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <ListView Grid.Column ="0" 
 	  x:Name="productlistView"
 	  ScrollViewer.HorizontalScrollBarVisibility="Disabled"
           HorizontalContentAlignment="Center">
 
-            <ListView.ItemsPanel>
-                <ItemsPanelTemplate>
-                    <WrapPanel Orientation="Horizontal"
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel Orientation="Horizontal"
                               HorizontalAlignment="Center"/>
-                </ItemsPanelTemplate>
-            </ListView.ItemsPanel>
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
 
-            <ListView.ItemTemplate   >
-                <DataTemplate >
-                    <StackPanel Width="301">
-
-                        <TextBlock Text="{Binding Name}" 
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}" 
                                   	  VerticalAlignment="Center"
 				  TextAlignment="Center"
 				  TextWrapping="Wrap"
@@ -235,8 +238,7 @@ Opacity="0.5"
 				  Margin="0"
                                   FontSize="15"/>
 
-
-                        <TextBlock Text="{Binding Name}"
+                            <TextBlock Text="{Binding Name}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -244,24 +246,7 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                        <TextBlock Text="{Binding ArticleNumber}"
-VerticalAlignment="Center"
-TextAlignment="Center"
-TextWrapping="Wrap"
-HorizontalAlignment="Center"
-Margin="0"
-                FontSize="15"/>
-
-
-                        <TextBlock Text="{Binding Unit}"
-VerticalAlignment="Center"
-TextAlignment="Center"
-TextWrapping="Wrap"
-HorizontalAlignment="Center"
-Margin="0"
-                FontSize="15"/>
-
-                        <TextBlock Text="{Binding Cost}"
+                            <TextBlock Text="{Binding ArticleNumber}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -270,7 +255,7 @@ Margin="0"
                 FontSize="15"/>
 
 
-                        <TextBlock Text="{Binding MaxDiscount}"
+                            <TextBlock Text="{Binding Unit}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -278,7 +263,7 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                        <TextBlock Text="{Binding Manufacturer}"
+                            <TextBlock Text="{Binding Cost}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -286,7 +271,8 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                        <TextBlock Text="{Binding Supplier}"
+
+                            <TextBlock Text="{Binding MaxDiscount}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -294,7 +280,7 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                        <TextBlock Text="{Binding Category}"
+                            <TextBlock Text="{Binding Manufacturer}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -302,14 +288,7 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                        <TextBlock Text="{Binding DiscountAmount}"
-VerticalAlignment="Center"
-TextAlignment="Center"
-TextWrapping="Wrap"
-HorizontalAlignment="Center"
-Margin="0"
-                FontSize="15"/>
-                        <TextBlock Text="{Binding QuantityInStock}"
+                            <TextBlock Text="{Binding Supplier}"
 VerticalAlignment="Center"
 TextAlignment="Center"
 TextWrapping="Wrap"
@@ -317,11 +296,32 @@ HorizontalAlignment="Center"
 Margin="0"
                 FontSize="15"/>
 
-                       
+                            <TextBlock Text="{Binding Category}"
+VerticalAlignment="Center"
+TextAlignment="Center"
+TextWrapping="Wrap"
+HorizontalAlignment="Center"
+Margin="0"
+                FontSize="15"/>
 
-                         
+                            <TextBlock Text="{Binding DiscountAmount}"
+VerticalAlignment="Center"
+TextAlignment="Center"
+TextWrapping="Wrap"
+HorizontalAlignment="Center"
+Margin="0"
+                FontSize="15"/>
+                            <TextBlock Text="{Binding QuantityInStock}"
+VerticalAlignment="Center"
+TextAlignment="Center"
+TextWrapping="Wrap"
+HorizontalAlignment="Center"
+Margin="0"
+                FontSize="15"/>
 
-                        <TextBlock Text="{Binding Status}"
+
+
+                            <TextBlock Text="{Binding Status}"
                             VerticalAlignment="Center"
                             TextAlignment="Center"
                             TextWrapping="Wrap"
@@ -330,36 +330,190 @@ Margin="0"
                                             FontSize="15"/>
 
 
-                        <Border MouseDown="EditProduct_MouseDoubleClick" BorderBrush="#FF498C51" BorderThickness="2">
-                            <Image 
+                            <Border MouseDown="Border_MouseDown" BorderBrush="#FF498C51" BorderThickness="2">
+                                <Image 
 			                       HorizontalAlignment="Center"
 			                       Height="200"
 			                       Width="200"
-                                               ToolTip="{Binding Description}">
+                                   ToolTip="{Binding Description}">
 
-                                <Image.Source>
-                                    <BitmapImage UriSource = "{Binding ImagePath}" CacheOption="OnLoad">
-                                    </BitmapImage>
-                                </Image.Source>
-                            </Image>
-                        </Border>
+                                    <Image.Source>
+                                        <BitmapImage UriSource="{Binding ImagePath}" CacheOption="OnLoad">
+                                        </BitmapImage>
+                                    </Image.Source>
+                                </Image>
+                            </Border>
+                            
+                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+
+            </ListView>
 
 
 
 
-                       
 
-                    </StackPanel>
 
-                   
-                    
-                    
-                    
-                </DataTemplate>
-            </ListView.ItemTemplate>
 
-        </ListView>
 
+
+
+
+
+            <StackPanel Grid.Column="1" Name="ShowPanel" Orientation="Vertical">
+
+                <Border MouseDown="EditProduct_MouseDoubleClick" BorderBrush="#FF498C51" BorderThickness="2">
+                    <Image 
+       HorizontalAlignment="Center"
+       Height="200"     
+       Width="200"
+                   ToolTip="{Binding Description}">
+
+                        <Image.Source>
+                            <!--{Binding ImagePath}-->
+                            <BitmapImage CacheOption="OnLoad"
+                                         UriSource=".\Resources\picture.png" >
+                            </BitmapImage>
+                        </Image.Source>
+                    </Image>
+                </Border>
+
+
+                <TextBlock Text="{Binding Name}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding ArticleNumber}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+
+                <TextBlock Text="{Binding Unit}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding Cost}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+
+                <TextBlock Text="{Binding MaxDiscount}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding Manufacturer}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding Supplier}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding Category}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+                <TextBlock Text="{Binding DiscountAmount}"
+            VerticalAlignment="Center"
+            TextAlignment="Center"
+            TextWrapping="Wrap"
+            HorizontalAlignment="Center"
+            Margin="0"
+                            FontSize="15"/>
+                <TextBlock Text="{Binding QuantityInStock}"
+        VerticalAlignment="Center"
+        TextAlignment="Center"
+        TextWrapping="Wrap"
+        HorizontalAlignment="Center"
+        Margin="0"
+                        FontSize="15"/>
+
+
+
+                <TextBlock Text="{Binding Status}"
+                VerticalAlignment="Center"
+                TextAlignment="Center"
+                TextWrapping="Wrap"
+                HorizontalAlignment="Center"
+                Margin="0"
+                                FontSize="15"/>
+
+
+
+            </StackPanel>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </Grid>
+        
 
         <StackPanel Grid.Row="3"
                     VerticalAlignment="Center"

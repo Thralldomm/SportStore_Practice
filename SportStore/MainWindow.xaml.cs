@@ -15,11 +15,11 @@ namespace SportStore
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
-    /// </summary>
+    /// 11	Пахомова	Аиша	Анатольевна	m4ic8j5qgstw@gmail.com	2L6KZG	1
     public partial class MainWindow : Window
     {
         bool admin = false;
-        public MainWindow(User user)
+        public MainWindow(User user=null)
         {
             InitializeComponent();
             
@@ -48,8 +48,7 @@ namespace SportStore
                 }
 
                 productlistView.ItemsSource = db.Products.ToList();
-
-
+                 
 
                 List<string> sortList = new List<string>() { "По возрастанию цены", "По убыванию цены" };
                 sortUserComboBox.ItemsSource = sortList;
@@ -262,6 +261,12 @@ namespace SportStore
                 }
             }
 
+        }
+
+        private void Border_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Product p = (productlistView.SelectedItem) as Product;
+            ShowPanel.DataContext = p;
         }
     }
 }
