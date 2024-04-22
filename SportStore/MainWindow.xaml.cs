@@ -23,7 +23,7 @@ namespace SportStore
         {
             InitializeComponent();
             
-            statusUser.Text = user.RoleNavigation.Name;
+           
             addUser.Visibility = Visibility.Hidden;
             deleteUser.Visibility = Visibility.Hidden;
 
@@ -31,7 +31,7 @@ namespace SportStore
             {
                 if (user != null)
                 {
-
+                    statusUser.Text = user.RoleNavigation.Name;
                     if (user.Role == 1)
                     {
                         addUser.Visibility = Visibility.Visible;
@@ -128,9 +128,8 @@ namespace SportStore
         private void EditProduct_MouseDoubleClick(object sender, RoutedEventArgs e)
         {
             if (admin)
-            {
-                Product p = (sender as ListView).SelectedItem as Product;
-                new AddProductWindow(p).ShowDialog();
+            {  
+                new AddProductWindow(ShowPanel.DataContext as Product).ShowDialog();
             } 
 
         }
